@@ -35,11 +35,23 @@ struct MovieDetailView: View {
                 VStack(alignment: .leading)
                 {
                     Text(viewModel.movieDetail?.itemTitle ?? "")
-                        .fontWeight(.heavy)
+                        .fontWeight(.heavy)      
+                        .accessibility(identifier: "itemDetailTitle")
+                        .accessibility(label: Text(viewModel.movieDetail?.itemTitle ?? "detailTitle"))
+                    
                     Text(viewModel.movieDetail?.itemDate ?? "")
+                        .accessibility(identifier: "itemDetailDate")
+                        .accessibility(label: Text(viewModel.movieDetail?.itemDate ?? "itemDetailDate"))
+                    
                     Text(viewModel.movieDetail?.itemVoteAverage ?? "")
+                        .accessibility(identifier: "itemDetailVoteAverage")
+                        .accessibility(label: Text(viewModel.movieDetail?.itemVoteAverage ?? "itemDetailVoteAverage"))
+                    
                     Spacer()
                     Text(viewModel.movieDetail?.itemDescription ?? "")
+                        .accessibility(identifier: "itemDetailDescription")
+                        .accessibility(label: Text(viewModel.movieDetail?.itemDescription ?? "itemDetailDescription"))
+                    
                 }.padding()
             }
         }

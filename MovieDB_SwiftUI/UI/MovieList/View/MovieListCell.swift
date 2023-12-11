@@ -33,13 +33,25 @@ struct MovieListCell: View {
                 VStack(alignment: .leading) {
                     Text(movieItem.itemTitle)
                         .bold()
+                        .accessibility(identifier: "itemTitle")
+                        .accessibility(label: Text(movieItem.itemTitle))
+                    
                     Text(movieItem.itemVoteAverage)
                         .fontWeight(.medium)
+                        .accessibility(identifier: "itemVoteAverage")
+                        .accessibility(label: Text(movieItem.itemVoteAverage))
+
                     Text(movieItem.itemDate)
+                        .accessibility(identifier: "itemDate")
+                        .accessibility(label: Text(movieItem.itemDate))
+
                     Text(movieItem.itemDescription)
                         .fontWeight(.light)
                         .multilineTextAlignment(.leading)
-                        .lineLimit(3)
+                        .lineLimit(3)                        
+                        .accessibility(identifier: "itemDescription")
+                        .accessibility(label: Text(movieItem.itemDescription))
+
                 }
             }
         }
