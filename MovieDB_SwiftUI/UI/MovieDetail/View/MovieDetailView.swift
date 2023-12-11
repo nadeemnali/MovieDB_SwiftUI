@@ -1,0 +1,56 @@
+//
+//  MovieDetailView.swift
+//  MovieDB_SwiftUI
+//
+//  Created by Nadeem Ali on 10/12/2023.
+//
+
+import Foundation
+import SwiftUI
+
+struct MovieDetailView: View {
+    @ObservedObject var viewModel: MovieDetailViewModel
+    
+    init(viewModel: MovieDetailViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                if viewModel.movieDetail == nil {
+                    ProgressView()
+                        .onAppear(){
+                            viewModel.getMovieDetail()
+                        }
+                }
+                
+                if let imageURL = viewModel.movieDetail?.itemPhotoURL?.absoluteString {
+                    ImageView(urlString: imageURL)
+                        .frame(maxHeight: 300)
+                        .aspectRatio(.none, contentMode: .fit)
+                        .border(.black)
+                }
+                Divider()
+                VStack(alignment: .leading)
+                {
+                    Text(viewModel.movieDetail?.itemTitle ?? "")
+                        .fontWeight(.heavy)
+                    Text(viewModel.movieDetail?.itemDate ?? "")
+                    Text(viewModel.movieDetail?.itemVoteAverage ?? "")
+                    Spacer()
+                    Text(viewModel.movieDetail?.itemDescription ?? "")
+                }.padding()
+            }
+        }
+        .navigationTitle(Text(CommonHelper.itemDetailTitle))
+        .navigationBarTitleDisplayMode(.inline)
+        .errorAlert(error: viewModel.showError ?? "")
+    }
+    
+    
+}
+
+#Preview {
+    MovieDetailView(viewModel: MovieDetailViewModel(movieID: 1))
+}
