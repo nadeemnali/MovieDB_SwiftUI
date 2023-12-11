@@ -27,3 +27,6 @@ Once you have clonned the app to your local system, you can fire-up the app by o
 
 ### Screenshots
 
+![Simulator Screenshot - iPhone 15 Pro - 2023-12-11 at 12 07 32](https://github.com/nadeemnali/MovieDB_SwiftUI/assets/44068397/746cf00a-100f-408b-ae5c-436047c571cc)
+![Simulator Screenshot - iPhone 15 Pro - 2023-12-11 at 12 07 34](https://github.com/nadeemnali/MovieDB_SwiftUI/assets/44068397/4e6a747c-ee2d-46fc-8aad-b9d5529b7d70)
+
